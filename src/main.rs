@@ -10,7 +10,7 @@ fn main() {
     let mut octal = String::new();
     let mut i = 0;
 
-    // The bytes to process without padding, generating a full sextets table
+    // The number of full sextets to process
     let blockstoprocess = match a.len() % 3 {
         0 => a.len(),
         _ => a.len() - a.len() % 3,
@@ -25,7 +25,7 @@ fn main() {
     println!("24 bits blocks to process : {}", blockstoprocess);
     println!("Padding : {}", padding);
 
-    // Creating octal output from bytes converted to sextets (3 * 8 = 24 bytes)
+    // Creating octal output from bytes converted to sextets (3 * 8 bytes = 24 bits = four sextets)
     while i < blockstoprocess {
         octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], a[i + 2]])).as_str());
         i += 3;
