@@ -7,17 +7,18 @@ fn main() {
     input.pop();
     let a = input.as_bytes();
 
-    println!("{:?}", a);
     let mut octal = String::new();
-
     let mut i = 0;
-    println!("Length of string to encode : {}", a.len());
 
     // The bytes to process without padding, generating a full sextets table
     let bytestoprocess = match a.len() % 3 {
         0 => a.len(),
-        _ => a.len() - (a.len() - a.len() % 3),
+        _ => a.len() - (a.len() % 3),
     };
+
+    println!("{:?}", a);
+    println!("Length of string to encode : {}", a.len());
+    println!("Bytes to process : {}", bytestoprocess);
 
     // Creating octal output from bytes converted to sextets (3 * 8 = 24 bytes)
     while i < bytestoprocess {
