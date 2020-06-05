@@ -20,11 +20,6 @@ fn main() {
         _ => 3 - (a.len() - blockstoprocess)
     };
 
-    println!("{:?}", a);
-    println!("Length of string to encode : {}", a.len());
-    println!("24 bits blocks to process : {}", blockstoprocess);
-    println!("Padding : {}", padding);
-
     // Creating octal output from bytes converted to sextets (3 * 8 bytes = 24 bits = four sextets)
     while i < blockstoprocess {
         octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], a[i + 2]])).as_str());
@@ -41,8 +36,6 @@ fn main() {
         _ => {}
     };
 
-    println!("{}", octal);
-
     // Converting octal output to a decimal index vector
     let sextets = octal
         .as_bytes()
@@ -52,5 +45,11 @@ fn main() {
         })
         .collect::<Vec<u8>>();
 
+    // For dev and debug
+    println!("{:?}", a);
+    println!("Length of string to encode : {}", a.len());
+    println!("24 bits blocks to process : {}", blockstoprocess);
+    println!("Padding : {}", padding);
+    println!("{}", octal);
     println!("{:?}", sextets);
 }
