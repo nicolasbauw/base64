@@ -17,7 +17,7 @@ fn main() {
     };
     let padding = match a.len() % 3 {
         0 => 0,
-        _ => 3 - (a.len() - blockstoprocess)
+        _ => 3 - (a.len() - blockstoprocess),
     };
 
     // Creating octal output from bytes converted to sextets (3 * 8 bytes = 24 bits = four sextets)
@@ -29,10 +29,10 @@ fn main() {
     match padding {
         1 => {
             octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], 0])).as_str());
-        },
+        }
         2 => {
             octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], 0, 0])).as_str());
-        },
+        }
         _ => {}
     };
 
@@ -40,9 +40,7 @@ fn main() {
     let sextets = octal
         .as_bytes()
         .chunks(2)
-        .map(|s| {
-            u8::from_str_radix(str::from_utf8(s).unwrap(), 8).unwrap()
-        })
+        .map(|s| u8::from_str_radix(str::from_utf8(s).unwrap(), 8).unwrap())
         .collect::<Vec<u8>>();
 
     // For dev and debug
@@ -52,4 +50,9 @@ fn main() {
     println!("Padding : {}", padding);
     println!("{}", octal);
     println!("{:?}", sextets);
+
+    let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    for i in 0..sextets.len() {
+        print!("{}", &table[sextets[i] as usize..(sextets[i]+1) as usize]);
+    }
 }
