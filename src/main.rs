@@ -30,6 +30,17 @@ fn main() {
         octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], a[i + 2]])).as_str());
         i += 3;
     }
+
+    match padding {
+        1 => {
+            octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], 0])).as_str());
+        },
+        2 => {
+            octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], 0, 0])).as_str());
+        },
+        _ => {}
+    };
+
     println!("{}", octal);
 
     // Converting octal output to a decimal index vector
