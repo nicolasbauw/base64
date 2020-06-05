@@ -36,13 +36,10 @@ fn main() {
     let sextets = octal
         .as_bytes()
         .chunks(2)
-        .map(str::from_utf8)
-        .collect::<Result<Vec<&str>, _>>()
-        .unwrap()
-        .iter()
-        .map(|s| u8::from_str_radix(s, 8))
-        .collect::<Result<Vec<u8>, _>>()
-        .unwrap();
+        .map(|s| {
+            u8::from_str_radix(str::from_utf8(s).unwrap(), 8).unwrap()
+        })
+        .collect::<Vec<u8>>();
 
     println!("{:?}", sextets);
 }
