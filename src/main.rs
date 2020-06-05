@@ -11,17 +11,22 @@ fn main() {
     let mut i = 0;
 
     // The bytes to process without padding, generating a full sextets table
-    let bytestoprocess = match a.len() % 3 {
+    let blockstoprocess = match a.len() % 3 {
         0 => a.len(),
-        _ => a.len() - (a.len() % 3),
+        _ => a.len() - a.len() % 3,
+    };
+    let padding = match a.len() % 3 {
+        0 => 0,
+        _ => 3 - (a.len() - blockstoprocess)
     };
 
     println!("{:?}", a);
     println!("Length of string to encode : {}", a.len());
-    println!("Bytes to process : {}", bytestoprocess);
+    println!("24 bits blocks to process : {}", blockstoprocess);
+    println!("Padding : {}", padding);
 
     // Creating octal output from bytes converted to sextets (3 * 8 = 24 bytes)
-    while i < bytestoprocess {
+    while i < blockstoprocess {
         octal.push_str(format!("{:o}", u32::from_be_bytes([0, a[i], a[i + 1], a[i + 2]])).as_str());
         i += 3;
     }
