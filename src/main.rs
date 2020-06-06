@@ -54,8 +54,13 @@ fn main() {
     }
 
     let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    for i in 0..sextets.len() {
+    for i in 0..(sextets.len()-padding) {
         print!("{}", &table[sextets[i] as usize..(sextets[i]+1) as usize]);
     }
+    match padding {
+        1 => print!("="),
+        2 => print!("=="),
+        _ => {}
+    };
     println!("");
 }
