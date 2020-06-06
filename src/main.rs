@@ -4,7 +4,13 @@ fn main() {
     let mut input = String::new();
     io::stdin().read_line(&mut input).unwrap();
 
+    // removes line feed
     input.pop();
+    
+    println!("{}", encode(input));
+}
+
+fn encode(input: String) -> String {
     let a = input.as_bytes();
 
     let mut octal = String::new();
@@ -55,13 +61,15 @@ fn main() {
     }
 
     let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    let mut result = String::new();
+
     for i in 0..(sextets.len() - padding) {
-        print!("{}", &table[sextets[i] as usize..(sextets[i] + 1) as usize]);
+        result.push_str(&table[sextets[i] as usize..(sextets[i] + 1) as usize]);
     }
     match padding {
-        1 => print!("="),
-        2 => print!("=="),
+        1 => result.push_str("="),
+        2 => result.push_str("=="),
         _ => {}
     };
-    println!("");
+    result
 }
