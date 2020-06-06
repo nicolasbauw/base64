@@ -55,4 +55,5 @@ fn main() {
     for i in 0..sextets.len() {
         print!("{}", &table[sextets[i] as usize..(sextets[i]+1) as usize]);
     }
+    println!("");
 }
