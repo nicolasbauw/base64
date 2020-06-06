@@ -43,13 +43,15 @@ fn main() {
         .map(|s| u8::from_str_radix(str::from_utf8(s).unwrap(), 8).unwrap())
         .collect::<Vec<u8>>();
 
-    // For dev and debug
-    println!("{:?}", a);
-    println!("Length of string to encode : {}", a.len());
-    println!("24 bits blocks to process : {}", blockstoprocess);
-    println!("Padding : {}", padding);
-    println!("{}", octal);
-    println!("{:?}", sextets);
+    #[cfg(debug_assertions)] {
+        // For dev and debug
+        println!("{:?}", a);
+        println!("Length of string to encode : {}", a.len());
+        println!("24 bits blocks to process : {}", blockstoprocess);
+        println!("Padding : {}", padding);
+        println!("{}", octal);
+        println!("{:?}", sextets);
+    }
 
     let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     for i in 0..sextets.len() {
