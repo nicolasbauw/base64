@@ -46,12 +46,12 @@ fn main() {
     // For dev and debug
     #[cfg(debug_assertions)]
     {
-        println!("{:?}", a);
+        println!("Input as bytes : {:?}", a);
         println!("Length of string to encode : {}", a.len());
         println!("24 bits blocks to process : {}", blockstoprocess);
         println!("Padding : {}", padding);
-        println!("{}", octal);
-        println!("{:?}", sextets);
+        println!("Padded input as octal : {}", octal);
+        println!("Decimal encoded data : {:?}", sextets);
     }
 
     let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
