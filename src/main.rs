@@ -43,8 +43,9 @@ fn main() {
         .map(|s| u8::from_str_radix(str::from_utf8(s).unwrap(), 8).unwrap())
         .collect::<Vec<u8>>();
 
-    #[cfg(debug_assertions)] {
-        // For dev and debug
+    // For dev and debug
+    #[cfg(debug_assertions)]
+    {
         println!("{:?}", a);
         println!("Length of string to encode : {}", a.len());
         println!("24 bits blocks to process : {}", blockstoprocess);
@@ -54,8 +55,8 @@ fn main() {
     }
 
     let table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    for i in 0..(sextets.len()-padding) {
-        print!("{}", &table[sextets[i] as usize..(sextets[i]+1) as usize]);
+    for i in 0..(sextets.len() - padding) {
+        print!("{}", &table[sextets[i] as usize..(sextets[i] + 1) as usize]);
     }
     match padding {
         1 => print!("="),
