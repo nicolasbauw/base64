@@ -3,7 +3,7 @@ use lib_base64::Base64;
 
 fn main() {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).unwrap();
+    if io::stdin().read_line(&mut input).is_err() == true { return };
 
     // removes line feed
     input.pop();
