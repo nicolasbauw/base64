@@ -19,6 +19,10 @@ fn main() {
     // removes line feed
     input.pop();
 
+    // Windows : removes carriage return
+    #[cfg(windows)]
+    input.pop();
+
     match opt.decode {
         false => println!("{}", input.encode()),
         true => println!("{}", input.decode())
