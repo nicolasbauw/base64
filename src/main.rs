@@ -1,4 +1,4 @@
-//! An alternative and interactive base64 (with padding) encoding/decoding utility.
+//! An alternative and interactive base64 (with padding) string encoding/decoding utility.
 //! 
 //! You can use it by two ways:
 //! - You run it, type your text, and press enter
@@ -29,10 +29,10 @@ use std::io;
 use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
-#[structopt(about = "An alternative version of base64")]
+#[structopt(about = "A base64 (with padding) string encoding/decoding utility.")]
 struct Opt {
     #[structopt(short = "d")]
-    // We have to encode or decode ?
+    /// decodes a base64-encoded string
     decode: bool,
 }
 
