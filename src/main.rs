@@ -32,7 +32,7 @@ static HELP: &str = "A base64 (with padding) string encoding/decoding utility.
 
 USAGE:
     Interactive mode     : base64-lt [FLAGS]
-    Non-interactive mode : echo \"string\" | base64-lt
+    Non-interactive mode : echo \"string\" | base64-lt [FLAGS]
 
 FLAGS:
     -d               decodes a base64-encoded string
