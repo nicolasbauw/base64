@@ -1,6 +1,6 @@
 [package]
 name = "base64-lt"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Nicolas BAUW <nbauw@hotmail.com>"]
 edition = "2018"
 repository = "https://github.com/nicolasbauw/base64"
@@ -14,4 +14,3 @@ readme = "README.md"
 
 [dependencies]
 lib-base64 = "1.0"
-structopt = { version = "0.3.2", default-features = false }
