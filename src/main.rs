@@ -1,11 +1,11 @@
 //! An alternative and interactive base64 (with padding) string encoding/decoding utility.
-//! 
+//!
 //! You can use it by two ways:
 //! - Interactive mode : you run it, type your text, and press enter
 //! - Non-interactive mode : you echo your text and pipe it to base64-lt.
-//! 
+//!
 //! The -d commutator is for decoding. Tested on MacOS / Linux / Windows.
-//! 
+//!
 //! Examples:
 //! ```text
 //! base64-lt   
@@ -18,14 +18,14 @@
 //! VGVzdA==
 //! Test
 //! ````
-//! 
+//!
 //! ```text
 //! echo "VGVzdA==" | base64-lt -d
 //! Test
 //! ```
 
 use lib_base64::Base64;
-use std::{ io, env };
+use std::{env, io};
 
 static VERSION: &str = env!("CARGO_PKG_VERSION");
 static HELP: &str = "A base64 (with padding) string encoding/decoding utility.
@@ -50,12 +50,21 @@ fn main() -> Result<(), lib_base64::Base64Error> {
         None => false,
         Some(a) => match a.as_ref() {
             "-d" => true,
-            "-h" | "--help" => { println!("base64-lt {}", VERSION); println!("{}", HELP); return Ok(()) },
-            "-V" | "--version" => { println!("{}", VERSION); return Ok(()) },
-            _ => { println!("Invalid argument"); return Ok(())}
+            "-h" | "--help" => {
+                println!("base64-lt {}", VERSION);
+                println!("{}", HELP);
+                return Ok(());
+            }
+            "-V" | "--version" => {
+                println!("{}", VERSION);
+                return Ok(());
+            }
+            _ => {
+                println!("Invalid argument");
+                return Ok(());
+            }
         },
     };
-    
     if io::stdin().read_line(&mut input).is_err() == true {
         println!("Can't read stdin");
         return Ok(());
