@@ -25,7 +25,7 @@
 //! ```
 
 use lib_base64::Base64;
-use std::{env, io};
+use std::{env, io, error::Error, process};
 
 static VERSION: &str = env!("CARGO_PKG_VERSION");
 static HELP: &str = "A base64 (with padding) string encoding/decoding utility.
@@ -42,7 +42,7 @@ FLAGS:
 EXAMPLE:
     echo \"VGVzdA==\" | base64-lt -d";
 
-fn main() -> Result<(), lib_base64::Base64Error> {
+fn main() -> Result<(), Box<dyn Error>> {
     let mut args = env::args();
     let mut input = String::new();
 
@@ -61,14 +61,11 @@ fn main() -> Result<(), lib_base64::Base64Error> {
             }
             _ => {
                 println!("Invalid argument");
-                return Ok(());
+                process::exit(1);
             }
         },
     };
-    if io::stdin().read_line(&mut input).is_err() == true {
-        println!("Can't read stdin");
-        return Ok(());
-    };
+    io::stdin().read_line(&mut input)?;
 
     // removes line feed
     input.pop();
