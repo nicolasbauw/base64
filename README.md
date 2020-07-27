@@ -29,6 +29,4 @@ echo "VGVzdA==" | base64-lt -d
 Test
 ```
 
-[Here](https://techblog.pagesperso-orange.fr/) you can download binaries for Windows / Linux.
-
 License: GPL-3.0
