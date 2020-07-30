@@ -1,6 +1,6 @@
 //! A base64 (with padding) string encoding/decoding utility.
 //!
-//! You can use it by two ways:
+//! You can use it in two ways:
 //! - Interactive mode : you run it, type your text, and press enter
 //! - Non-interactive mode : you echo your text and pipe it to base64-lt.
 //!
