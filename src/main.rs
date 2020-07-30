@@ -42,7 +42,14 @@ FLAGS:
 EXAMPLE:
     echo \"VGVzdA==\" | base64-lt -d";
 
-fn main() -> Result<(), Box<dyn Error>> {
+fn main() {
+    if let Err(e) = base64() {
+        println!("{}", e);
+        process::exit(1);
+    }
+}
+
+fn base64() -> Result<(), Box<dyn Error>> {
     let mut args = env::args();
     let mut input = String::new();
 
