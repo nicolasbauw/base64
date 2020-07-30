@@ -1,12 +1,12 @@
 [package]
 name = "base64-lt"
-version = "1.0.2"
+version = "1.0.3"
 authors = ["Nicolas BAUW <nbauw@hotmail.com>"]
 edition = "2018"
 repository = "https://github.com/nicolasbauw/base64"
 categories = ["command-line-utilities", "encoding", "visualization"]
 keywords = ["base64", "encoding", "padding", "decoding"]
-description = "An alternative and interactive base64 (with padding) encoding/decoding utility."
+description = "A base64 (with padding) string encoding/decoding utility."
 license = "GPL-3.0"
 readme = "README.md"
 

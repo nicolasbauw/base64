@@ -3,7 +3,7 @@
 [![Current Crates.io Version](https://img.shields.io/crates/v/base64-lt.svg)](https://crates.io/crates/base64-lt)
 [![Downloads badge](https://img.shields.io/crates/d/base64-lt.svg)](https://crates.io/crates/base64-lt)
 
-An alternative and interactive base64 (with padding) string encoding/decoding utility.
+A base64 (with padding) string encoding/decoding utility.
 
 You can use it by two ways:
 - Interactive mode : you run it, type your text, and press enter
