@@ -27,8 +27,8 @@
 use lib_base64::Base64;
 use std::{env, io, error::Error, process};
 
-static VERSION: &str = env!("CARGO_PKG_VERSION");
-static HELP: &str = "A base64 (with padding) string encoding/decoding utility.
+const VERSION: &str = env!("CARGO_PKG_VERSION");
+const HELP: &str = "A base64 (with padding) string encoding/decoding utility.
 
 USAGE:
     Interactive mode     : base64-lt [FLAGS]
