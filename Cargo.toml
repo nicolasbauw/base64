@@ -1,6 +1,6 @@
 [package]
 name = "base64-lt"
-version = "1.0.3"
+version = "1.0.4"
 authors = ["Nicolas BAUW <nbauw@hotmail.com>"]
 edition = "2018"
 repository = "https://github.com/nicolasbauw/base64"
@@ -13,4 +13,4 @@ readme = "README.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-lib-base64 = "1.0"
+lib-base64 = "2.0"

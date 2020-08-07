@@ -2,13 +2,13 @@
 # It is not intended for manual editing.
 [[package]]
 name = "base64-lt"
-version = "1.0.3"
+version = "1.0.4"
 dependencies = [
  "lib-base64",
 ]
 
 [[package]]
 name = "lib-base64"
-version = "1.0.3"
+version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c870348f78d34766ef493e98f95508f144d2c280cd2a327a2643f6db53b41ec"
+checksum = "af141abd615af116e0c2dc8ec1ec934ea474c4598bbd6ad5278024999f02449e"

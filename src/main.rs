@@ -82,7 +82,7 @@ fn base64() -> Result<(), Box<dyn Error>> {
     input.pop();
 
     match decode {
-        false => println!("{}", input.encode()),
+        false => println!("{}", input.encode()?),
         true => println!("{}", input.decode()?),
     }
     Ok(())
