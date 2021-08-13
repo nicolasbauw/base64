@@ -1,13 +1,13 @@
 [package]
 name = "base64-lt"
-version = "1.0.4"
+version = "1.0.5"
 authors = ["Nicolas BAUW <nbauw@hotmail.com>"]
 edition = "2018"
 repository = "https://github.com/nicolasbauw/base64"
 categories = ["command-line-utilities", "encoding", "visualization"]
 keywords = ["base64", "encoding", "padding", "decoding"]
 description = "A base64 (with padding) string encoding/decoding utility."
-license = "GPL-3.0"
+license = "MIT"
 readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

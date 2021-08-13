@@ -29,4 +29,4 @@ echo "VGVzdA==" | base64-lt -d
 Test
 ```
 
-License: GPL-3.0
+License: MIT
